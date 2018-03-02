@@ -1,0 +1,23 @@
+--mostra a idade mínima, máxima, a média e a soma das idades, e a quantidade de registros 
+
+SELECT MIN(AGE), MAX(AGE), AVG(AGE), SUM(AGE), COUNT(*)
+FROM PERSON
+
+--agrupa por sexo
+SELECT MIN(AGE), MAX(AGE), AVG(AGE), SUM(AGE), COUNT(AGE), GENDER
+FROM PERSON
+--WHERE REGISTER > 5
+GROUP BY GENDER
+
+--agrupa por estado
+SELECT MIN(AGE), MAX(AGE), AVG(AGE), SUM(AGE), COUNT(AGE), STATE
+FROM PERSON
+--WHERE REGISTER > 5
+GROUP BY STATE
+
+--agrupa por cidade
+SELECT MIN(AGE), MAX(AGE), AVG(AGE), SUM(AGE), COUNT(AGE), CITY
+FROM PERSON
+--WHERE REGISTER > 5
+GROUP BY CITY
+
