@@ -16,7 +16,7 @@ public class ContaDAO {
 			conn = DBUtil.openConnection(); //inicia a transação
 			conn.setAutoCommit(false);
 			
-			int saldoOrigem = consultarSaldo(origem);
+			int saldoOrigem = consultarSaldo(origem, conn);
 			
 			if(saldoOrigem == -1) {// não achou a conta
 				//provoca erro para fazer o rollback
@@ -30,7 +30,7 @@ public class ContaDAO {
 			stmSacar.setInt(2, origem);
 			stmSacar.execute();
 			
-			int saldoDestino = consultarSaldo(destino);
+			int saldoDestino = consultarSaldo(destino, conn);
 			if(saldoDestino == -1) {// não achou a conta
 				//provoca erro para fazer o rollback
 				throw new SQLException("Conta de destino não encontrada");
@@ -58,12 +58,13 @@ public class ContaDAO {
 		}
 	}
 	
-	public int consultarSaldo(int numeroDaConta) {
+	public int consultarSaldo(int numeroDaConta, Connection conn) {
 		String sql = "SELECT AMOUNT FROM ACCOUNT WHERE ACCOUNT_NUMBER = ?";
 		
-		Connection conn = null;
+		//agora vai usar a conexão do método "transferir", para usar a transação
+//		Connection conn = null;
 		try {
-			conn = DBUtil.openConnection();
+//			conn = DBUtil.openConnection();
 			
 			PreparedStatement stm = conn.prepareStatement(sql);
 			stm.setInt(1, numeroDaConta);
@@ -78,7 +79,7 @@ public class ContaDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			DBUtil.closeConnection(conn);
+//			DBUtil.closeConnection(conn);
 		}
 		return -1;
 	}
