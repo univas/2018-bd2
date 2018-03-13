@@ -1,0 +1,8 @@
+--Mostrar o nome dos funcionários com seus respectivos salários
+
+SELECT E.REGISTRY, E.NAME, R.WAGE, R.NAME, D.NAME
+FROM EMPLOYEE E
+JOIN ROLE R ON R.CODE = E.ROLE_CODE
+JOIN DEPARTMENT D ON D.CODE = E.DEPARTMENT_CODE
+WHERE E.ACTIVE = TRUE
+
