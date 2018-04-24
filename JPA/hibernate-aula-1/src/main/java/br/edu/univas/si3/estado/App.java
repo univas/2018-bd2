@@ -16,9 +16,14 @@ public class App
         Position posGerente = new Position();
         posGerente.setCode(1);
         posGerente.setName("Gerente");
+
+        Position posAnalisa = new Position();
+        posGerente.setCode(2);
+        posGerente.setName("Analista");
         
         em.getTransaction().begin();
         em.persist(posGerente);
+        em.persist(posAnalisa);
         em.getTransaction().commit();
     }
 }

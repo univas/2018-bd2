@@ -10,9 +10,8 @@ public class HibernateUtil {
 
 	private static EntityManagerFactory buildSessionFactory() {
 		try {
-			return Persistence.createEntityManagerFactory("AulaHibernatePU"); // Create
-																						// the
-																						// Factory
+			// Create the Factory
+			return Persistence.createEntityManagerFactory("AulaHibernatePU"); 
 		} catch (Throwable e) {
 			// Make sure you log the exception , as it might be swallowed
 			System.err.println("Error creating EntityManagerFactory ." + e);
