@@ -4,18 +4,21 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CARGO")
+@Table(name = "CARGO")
 public class Position implements Serializable {
 
 	@Id
-	@Column(name="CODIGO", nullable = false)
+	@Column(name = "CODIGO", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int code;
-	
-	@Column(name="NOME", nullable = false, length = 20)
+
+	@Column(name = "NOME", nullable = false, length = 20)
 	private String name;
 
 	public int getCode() {
@@ -33,5 +36,5 @@ public class Position implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 }
