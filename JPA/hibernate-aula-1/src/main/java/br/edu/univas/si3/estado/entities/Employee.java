@@ -5,9 +5,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -32,6 +35,10 @@ public class Employee implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "NASCIMENTO")
 	private Date birth;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CODIGO_CARGO")
+	private Position position;
 
 	public int getCode() {
 		return code;
@@ -63,6 +70,14 @@ public class Employee implements Serializable {
 
 	public void setBirth(Date birth) {
 		this.birth = birth;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 
 }

@@ -12,11 +12,11 @@ public class AppCargo {
 		EntityManager em = HibernateUtil.getEntityManager();
 
 		Position posGerente = new Position();
-		// posGerente.setCode(1);
+		// posGerente.setCode(1);//não seta o código (PK) quando o valor é gerado pelo banco
 		posGerente.setName("Gerente");
 
 		Position posAnalisa = new Position();
-		// posAnalisa.setCode(2);
+		// posAnalisa.setCode(2);//não seta o código (PK) quando o valor é gerado pelo banco
 		posAnalisa.setName("Analista");
 
 		em.getTransaction().begin();
