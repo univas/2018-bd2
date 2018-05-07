@@ -24,13 +24,20 @@ public class AppCargoEFuncionario {
 		e1.setActive(false);
 		e1.setBirth(new Date());
 
+		Employee e2 = new Employee();
+		e2.setName("Jane");
+		e2.setActive(true);
+		e2.setBirth(new Date());
+		
 		// persiste os funcionários
 		em.getTransaction().begin();
 		em.persist(posGerente);
 		
 		e1.setPosition(posGerente);
+		e2.setPosition(posGerente);
 		
 		em.persist(e1);
+		em.persist(e2);
 		em.getTransaction().commit();
 	}
 }

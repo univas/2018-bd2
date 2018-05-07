@@ -18,7 +18,7 @@ public class AppConsultaCargo {
 		//LAZY - busca apenas o cargo
 		//EAGER - busca o cargo e os funcionários
 		//verificar o select que é executado no banco
-		Position cargo = em.find(Position.class, 3);
+		Position cargo = em.find(Position.class, 4);
 		
 		System.out.println("Cargo: " + cargo.getName());
 
@@ -29,6 +29,12 @@ public class AppConsultaCargo {
 
 		for (Employee employee : empregados) {
 			System.out.println("Empregado: " + employee.getName());
-		}		
+		}
+		
+		//Exercício:
+		//Fazer uma consulta de um funcionário e obter o seu cargo.
+		//Testar com LAZY e EAGER e verificar as consultas executadas para cada caso.
+		
+		
 	}
 }
